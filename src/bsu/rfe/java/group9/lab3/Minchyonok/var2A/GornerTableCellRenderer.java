@@ -17,7 +17,7 @@ public class GornerTableCellRenderer implements TableCellRenderer {
 	private DecimalFormat formatter = (DecimalFormat)NumberFormat.getInstance();
 	
 	public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus,int row, int col) {
-		// Преобразовать double в строку с помощью форматировщика
+		
 		String znakX = formatter.format(value);
 		label.setText(znakX);
 		panel.setBackground(Color.WHITE);
