@@ -14,9 +14,9 @@ JCheckBox hboxBool = new JCheckBox();
 hboxBool.setSelected((Boolean)value);
 
 if ((Boolean)value) {
-hboxBool.setText("Да");
+hboxBool.setText("Р”Р°");
 } else {
-hboxBool.setText("Нет");
+hboxBool.setText("РќРµС‚");
 }
 
 return hboxBool;
