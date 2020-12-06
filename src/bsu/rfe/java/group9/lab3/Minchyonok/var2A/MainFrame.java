@@ -145,11 +145,11 @@ public class MainFrame extends JFrame {
 			}
 
 			out.println("");
-			out.println("Интервал от " + this.data.getFrom() + " до " + this.data.getTo() + " с шагом " + this.data.getStep());
+			out.println("Интервал от " + data.getFrom() + " до " + data.getTo() + " с шагом " + data.getStep());
 			out.println("====================================================");
 
 			for(i = 0; i < this.data.getRowCount(); ++i) {
-				out.println("Значение в точке " + this.data.getValueAt(i, 0) + " равно " + this.data.getValueAt(i, 1));
+				out.println("Значение в точке " + data.getValueAt(i, 0) + " равно " + data.getValueAt(i, 1));
 			}
           out.close();
 
@@ -162,9 +162,9 @@ public class MainFrame extends JFrame {
 		try {
 			DataOutputStream out = new DataOutputStream(new FileOutputStream(selctedFile));
 
-			for(int i = 0; i < this.data.getRowCount(); ++i) {
+			for(int i = 0; i < data.getRowCount(); ++i) {
 				out.writeDouble((Double)this.data.getValueAt(i, 0));
-				out.writeDouble((Double)this.data.getValueAt(i, 0));
+				out.writeDouble((Double)this.data.getValueAt(i, 1));
 			}
 
 			out.close();
