@@ -33,7 +33,7 @@ public class CalcActionListener implements ActionListener {
 			this$0.getSaveToGraphicsMenuItem().setEnabled(true);
 			this$0.getSearchValueMenuItem().setEnabled(true);
 		} catch (NumberFormatException var6) {
-			JOptionPane.showMessageDialog(this.this$0, "Ошибка в формате записи числа с плавающей точкой", "Ошибочный формат числа", 2);
+			JOptionPane.showMessageDialog(this.this$0, "РћС€РёР±РєР° РІ С„РѕСЂРјР°С‚Рµ Р·Р°РїРёСЃРё С‡РёСЃР»Р° СЃ РїР»Р°РІР°СЋС‰РµР№ С‚РѕС‡РєРѕР№", "РћС€РёР±РѕС‡РЅС‹Р№ С„РѕСЂРјР°С‚ С‡РёСЃР»Р°", 2);
 		}
 	}
 }
