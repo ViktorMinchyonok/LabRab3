@@ -61,13 +61,13 @@ public class GornerTableModel extends AbstractTableModel {
 	public String getColumnName(int col) {
 		switch (col) {
 		case 0: 
-			return "Значение X"; 
+			return "Р—РЅР°С‡РµРЅРёРµ X"; 
 		case 1:  
-			return "Значение многочлена";
+			return "Р—РЅР°С‡РµРЅРёРµ РјРЅРѕРіРѕС‡Р»РµРЅР°";
 		case 2:
-			return "Значение больше нуля?";
+			return "Р—РЅР°С‡РµРЅРёРµ Р±РѕР»СЊС€Рµ РЅСѓР»СЏ?";
 		default:
-			return "Н/А";
+			return "Рќ/Рђ";
 		}
 	}
 
