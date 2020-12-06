@@ -34,9 +34,9 @@ public class Spravka extends JFrame {
 		});
 
 		hboxLab234.add(Box.createVerticalStrut(50));
-		hboxLab234.add(new JLabel("Минчёнок Виктор Валентинович"));
-		hboxLab234.add(new JLabel("Лаба №3 Вариант В1"));
-		hboxLab234.add(new JLabel("Группа №9"));
+		hboxLab234.add(new JLabel("РњРёРЅС‡С‘РЅРѕРє Р’РёРєС‚РѕСЂ Р’Р°Р»РµРЅС‚РёРЅРѕРІРёС‡"));
+		hboxLab234.add(new JLabel("Р›Р°Р±Р° в„–3 Р’Р°СЂРёР°РЅС‚ Рђ1"));
+		hboxLab234.add(new JLabel("Р“СЂСѓРїРїР° в„–9"));
 
 		hboxButton.add(Box.createVerticalStrut(50));
 		hboxButton.add(buttonOk);
