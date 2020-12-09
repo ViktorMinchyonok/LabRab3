@@ -42,6 +42,7 @@ public class MainFrame extends JFrame {
 	private JTextField textFieldTo;
 	private JTextField textFieldStep;
 	private Box hBoxResult;
+	private JMenuItem findValMenuItem;
 
 	// Визуализатор ячеек таблицы
 	private GornerTableCellRenderer renderer = new GornerTableCellRenderer(); 
@@ -75,85 +76,22 @@ public class MainFrame extends JFrame {
 		saveToGraphicsMenuItem = fileMenu.add(saveToGraphicsAction);
 		saveToGraphicsMenuItem.setEnabled(false);
                 
-		Action searchValueAction = new AbstractAction("Найти значение многочлена") 
-		{
-			public void actionPerformed(ActionEvent event) 
-			{ 
-				// Запросить пользователя ввести искомую строку 
-				String value = JOptionPane.showInputDialog(MainFrame.this, "Введите значение для поиска", "Поиск значения", JOptionPane.QUESTION_MESSAGE); 
-				// Установить введенное значение в качестве иголки 
-				renderer.setNeedle(value); 
-				// Обновить таблицу 
-				getContentPane().repaint(); 
+		Action findValueAction = new AbstractAction("Найти значение многочлена") {
+
+			public void actionPerformed(ActionEvent event) {
+				// Запросить пользователя ввести искомую строку
+				String value = JOptionPane.showInputDialog(MainFrame.this, "Введите значение для поиска", "Поиск значения", JOptionPane.QUESTION_MESSAGE);
+				// Установить введенное значение в качестве иголки
+				renderer.setNeedle(value);
+				// Обновить таблицу
+				getContentPane().repaint();
 			}
+
 		};
+                
+		findValMenuItem = tableMenu.add(findValueAction);
+		findValMenuItem.setEnabled(false);
 
-
-// Добавить действие в меню "Таблица" 
-		searchValueMenuItem = tableMenu.add(searchValueAction);
-		// По умолчанию пункт меню является недоступным (данных ещѐ нет) 
-		searchValueMenuItem.setEnabled(false); 
-		// Создать область с полями ввода для границ отрезка и шага 
-		// Создать подпись для ввода левой границы отрезка 
-		JLabel labelForFrom = new JLabel("X изменяется на интервале от:");
-		// Создать текстовое поле для ввода значения длиной в 10 символов 
-		// со значением по умолчанию 0.0 
-		textFieldFrom = new JTextField("0.0", 10); 
-		// Установить максимальный размер равный предпочтительному, чтобы 
-		// предотвратить увеличение размера поля ввода 
-		textFieldFrom.setMaximumSize(textFieldFrom.getPreferredSize()); 
-		// Создать подпись для ввода левой границы отрезка 
-		JLabel labelForTo = new JLabel("до:"); 
-		// Создать текстовое поле для ввода значения длиной в 10 символов 
-		// со значением по умолчанию 1.0 
-		textFieldTo = new JTextField("1.0", 10); 
-		// Установить максимальный размер равный предпочтительному, чтобы 
-		// предотвратить увеличение размера поля ввода 
-		textFieldTo.setMaximumSize(textFieldTo.getPreferredSize()); 
-		// Создать подпись для ввода шага табулирования 
-		JLabel labelForStep = new JLabel("с шагом:"); 
-		// Создать текстовое поле для ввода значения длиной в 10 символов 
-		// со значением по умолчанию 1.0 
-		textFieldStep = new JTextField("0.1", 10); 
-		// Установить максимальный размер равный предпочтительному, чтобы 
-		// предотвратить увеличение размера поля ввода 
-		textFieldStep.setMaximumSize(textFieldStep.getPreferredSize()); 
-		// Создать контейнер 1 типа "коробка с горизонтальной укладкой" 
-		Box hboxRange = Box.createHorizontalBox(); 
-		// Задать для контейнера тип рамки "объѐмная" 
-		hboxRange.setBorder(BorderFactory.createBevelBorder(1));
-		// Добавить "клей" C1-H1 
-		hboxRange.add(Box.createHorizontalGlue()); 
-		// Добавить подпись "От" 
-		hboxRange.add(labelForFrom); 
-		// Добавить "распорку" C1-H2 
-		hboxRange.add(Box.createHorizontalStrut(10)); 
-		// Добавить поле ввода "От" 
-		hboxRange.add(textFieldFrom); 
-		// Добавить "распорку" C1-H3 
-		hboxRange.add(Box.createHorizontalStrut(20)); 
-		// Добавить подпись "До" 
-		hboxRange.add(labelForTo); 
-		// Добавить "распорку" C1-H4 
-		hboxRange.add(Box.createHorizontalStrut(10)); 
-		// Добавить поле ввода "До" 
-		hboxRange.add(textFieldTo); 
-		// Добавить "распорку" C1-H5 
-		hboxRange.add(Box.createHorizontalStrut(20)); 
-		// Добавить подпись "с шагом" 
-		hboxRange.add(labelForStep); 
-		// Добавить "распорку" C1-H6 
-		hboxRange.add(Box.createHorizontalStrut(10)); 
-		// Добавить поле для ввода шага табулирования 
-		hboxRange.add(textFieldStep); 
-		// Добавить "клей" C1-H7 
-		hboxRange.add(Box.createHorizontalGlue()); 
-		// Установить предпочтительный размер области равным удвоенному 
-		// минимальному, чтобы при компоновке область совсем не сдавили 
-		hboxRange.setPreferredSize(new Dimension(new Double(hboxRange.getMaximumSize().getWidth()).intValue(), new Double(hboxRange.getMinimumSize().getHeight()).intValue()*2)); 
-		// Установить область в верхнюю (северную) часть компоновки 
-		getContentPane().add(hboxRange, BorderLayout.NORTH);
-		
 		
 		// Справка
 		Action afftarAction = new AboutAction(this, "О программе");
@@ -278,6 +216,9 @@ public class MainFrame extends JFrame {
 		MainFrame frame = new MainFrame(coeff);
 		frame.setDefaultCloseOperation(3);
 		frame.setVisible(true);
+	}
+	public JMenuItem getFindValMenuItem() {
+	    return findValMenuItem;
 	}
 
 	public JFileChooser getFileChooser() {
